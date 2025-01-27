@@ -1,0 +1,36 @@
+Script started on 2025-01-27 06:30:33+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="75" LINES="16"]
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff [0;36m([1;31mmain[0;36m) [0m$ sbcl
+This is SBCL 1.4.3, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* c (car (cdr(  (cdr '(a b x d))))
+
+X
+* (cr ar (car (cdr c (car ( c  cdr '(a ( (b ( x d    x d))))))))
+
+X
+* (car (car (cdr (car (cdr (car (car '(((a (b (x) d)))))))))))
+
+X
+* (cons 'a (cons 'b (cons 'x (cons 'd '()))))
+
+(A B X D)
+* (cons 'a (cons (cons 'b (cons (cons 'x (cons 'd '())) '())) '()))
+
+(A (B (X D)))
+* (cons (cons (cons 'a (cons (cons 'b (cons (cons 'x '()) (cons 'd '()))) '())) '()) '())
+
+(((A (B (X) D))))
+* (quit)
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff [0;36m([1;31mmain[0;36m) [0m$ p[Kecho yey
+yey
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff [0;36m([1;31mmain[0;36m) [0m$ exiy
+bash: exiy: command not found
+[0;32m@Dazzlepuff [1;31m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff [0;36m([1;31mmain[0;36m) [0m$ exit
+exit
+
+Script done on 2025-01-27 06:33:10+00:00 [COMMAND_EXIT_CODE="127"]
