@@ -1,0 +1,585 @@
+Script started on 2025-02-05 04:28:00+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="63" LINES="16"]
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork2 [0;36m([1;31mmain[0;36m) [0m$ 
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork2 [0;36m([1;31mmain[0;36m) [0m$ sbcl
+This is SBCL 1.4.3, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (NOT (EQUAL 3 (ABS -3)))
+
+NIL
+* (/ (+ 8 12) 2)
+
+10
+* (+ (* 3 3) (* 4 4))
+
+25
+* (DEFUN MILES-PER-GALLON (INITIAL-ODOMETER-READING FINAL-ODOMETER-READING GALLONS-CONSUMED)
+(/ (- FINAL-ODOMETER-READING INITIAL-ODOMETER-READING) GALLONS-CONSUMED))
+(MILES-PER-GALLON 1000 1200 10)
+MILES-PER-GALLON
+* 
+
+20
+* (third (the quick brown fox))
+; in: THIRD (THE QUICK BROWN FOX)
+;     (THE QUICK BROWN FOX)
+; 
+; caught ERROR:
+;   error while parsing arguments to special operator THE:
+;     too many elements in
+;       (QUICK BROWN FOX)
+;     to satisfy lambda list
+;       (SB-C::VALUE-TYPE SB-KERNEL:FORM):
+;     exactly 2 expected, but got 3
+; 
+; compilation unit finished
+;   caught 1 ERROR condition
+
+debugger invoked on a SB-INT:COMPILED-PROGRAM-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Execution of a form compiled with errors.
+Form:
+  (THE QUICK BROWN FOX)
+Compile-time error:
+  error while parsing arguments to special operator THE:
+  too many elements in
+    (QUICK BROWN FOX)
+  to satisfy lambda list
+    (SB-C::VALUE-TYPE SB-KERNEL:FORM):
+  exactly 2 expected, but got 3
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+((LAMBDA ()))
+   source: (THE QUICK BROWN FOX)
+0] (third '(the quick brown fox))
+
+BROWN
+0] (list 2 and 2 is 4)
+; in: THIRD (THE QUICK BROWN FOX)
+;     (LIST 2 AND 2 IS 4)
+; 
+; caught WARNING:
+;   undefined variable: AND
+; 
+; caught WARNING:
+;   undefined variable: IS
+; 
+; compilation unit finished
+;   Undefined variables:
+;     AND IS
+;   caught 2 WARNING conditions
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable AND is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Reduce debugger level (to debug level 1).
+  1:         Exit debugger, returning to top level.
+
+((LAMBDA (#:G390)) #<unused argument>)
+   source: (LIST 2 AND 2 IS 4)
+0[2] (list 2 'and 2 'is 4)
+
+(2 AND 2 IS 4)
+0[2] (+ 1 ’(length (list t t t t)))
+; in: THIRD (THE QUICK BROWN FOX)
+;     (+ 1 ’ (LENGTH (LIST T T T T)))
+; --> + 
+; ==>
+;   (+ 1 ’)
+; 
+; caught WARNING:
+;   undefined variable: ’
+; 
+; compilation unit finished
+;   Undefined variable:
+;     ’
+;   caught 1 WARNING condition
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’ is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Reduce debugger level (to debug level 2).
+  1:         Reduce debugger level (to debug level 1).
+  2:         Exit debugger, returning to top level.
+
+((LAMBDA (#:G392)) #<unused argument>)
+   source: (+ 1 ’ (LENGTH (LIST T T T T)))
+0[3] (+ 1 (length (list t t t t)))
+
+5
+0[3] 
+
+(exit)
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork2 [0;36m([1;31mmain[0;36m) [0m$ sbcl
+This is SBCL 1.4.3, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (third '(the quick brown fox))
+
+BROWN
+* (list 2 and 2 is 4)
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable AND is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV AND #<NULL-LEXENV>)
+0] 0
+
+* (list 2 'and 2 'is 4)
+
+(2 AND 2 IS 4)
+* (+ 1 ’(length (list t t t t)))
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’ is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’ #<NULL-LEXENV>)
+0] 0
+
+* (+ 1 (length (list t t t t)))
+
+5
+* (cons ’patrick (seymour marvin))
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’PATRICK is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’PATRICK #<NULL-LEXENV>)
+0] 0
+
+* (cons 'patrick '(seymour marvin))
+
+(PATRICK SEYMOUR MARVIN)
+* (cons ’patrick (list seymour marvin))
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’PATRICK is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’PATRICK #<NULL-LEXENV>)
+0] 0
+
+* (cons 'patrick (list 'seymour 'marvin))
+
+(PATRICK SEYMOUR MARVIN)
+* (mystery '(dancing bear))
+; in: MYSTERY '(DANCING BEAR)
+;     (MYSTERY '(DANCING BEAR))
+; 
+; caught STYLE-WARNING:
+;   undefined function: MYSTERY
+; 
+; compilation unit finished
+;   Undefined function:
+;     MYSTERY
+;   caught 1 STYLE-WARNING condition
+
+debugger invoked on a UNDEFINED-FUNCTION in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The function COMMON-LISP-USER::MYSTERY is undefined.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+("undefined function" (DANCING BEAR))
+0] 0
+
+* (mystery 'dancing 'bear)
+
+debugger invoked on a UNDEFINED-FUNCTION in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The function COMMON-LISP-USER::MYSTERY is undefined.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [CONTINUE ] Retry using MYSTERY.
+  1: [USE-VALUE] Use specified function
+  2: [ABORT    ] Exit debugger, returning to top level.
+
+(SB-IMPL::RETRY-%COERCE-NAME-TO-FUN MYSTERY NIL)
+0] 0
+
+debugger invoked on a UNDEFINED-FUNCTION in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The function COMMON-LISP-USER::MYSTERY is undefined.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [CONTINUE ] Retry using MYSTERY.
+  1: [USE-VALUE] Use specified function
+  2: [ABORT    ] Exit debugger, returning to top level.
+
+(SB-IMPL::RETRY-%COERCE-NAME-TO-FUN MYSTERY NIL)
+0] 0 2
+
+* (mystery '(zowie))
+
+debugger invoked on a UNDEFINED-FUNCTION in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The function COMMON-LISP-USER::MYSTERY is undefined.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [CONTINUE ] Retry using MYSTERY.
+  1: [USE-VALUE] Use specified function
+  2: [ABORT    ] Exit debugger, returning to top level.
+
+(SB-IMPL::RETRY-%COERCE-NAME-TO-FUN MYSTERY NIL)
+0] ' 2
+
+* (mystery (list 'first 'second))
+
+debugger invoked on a UNDEFINED-FUNCTION in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The function COMMON-LISP-USER::MYSTERY is undefined.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [CONTINUE ] Retry using MYSTERY.
+  1: [USE-VALUE] Use specified function
+  2: [ABORT    ] Exit debugger, returning to top level.
+
+(SB-IMPL::RETRY-%COERCE-NAME-TO-FUN MYSTERY NIL)
+0] 2
+
+* (defun mystery (x)
+(list (second x) (first x)))
+
+MYSTERY
+* (mystery '(dancing bear))
+
+(BEAR DANCING)
+* (mystery 'dancing 'bear)
+
+debugger invoked on a SB-INT:SIMPLE-PROGRAM-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  invalid number of arguments: 2
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(MYSTERY DANCING BEAR) [external]
+   source: (SB-INT:NAMED-LAMBDA MYSTERY
+               (X)
+             (BLOCK MYSTERY (LIST (SECOND X) (FIRST X))))
+0] 0
+
+* (mystery '(zowie))
+
+(NIL ZOWIE)
+* (mystery (list 'first 'second))
+
+(SECOND FIRST)
+* (defun speak (x y) (list ’all ’x ’is ’y))
+; in: DEFUN SPEAK
+;     (SB-INT:NAMED-LAMBDA SPEAK
+;         (X Y)
+;       (BLOCK SPEAK (LIST ’ALL ’X ’IS ’Y)))
+; 
+; caught STYLE-WARNING:
+;   The variable X is defined but never used.
+; 
+; caught STYLE-WARNING:
+;   The variable Y is defined but never used.
+; in: DEFUN SPEAK
+;     (LIST ’ALL ’X ’IS ’Y)
+; 
+; caught WARNING:
+;   undefined variable: ’ALL
+; 
+; caught WARNING:
+;   undefined variable: ’IS
+; 
+; caught WARNING:
+;   undefined variable: ’X
+; 
+; caught WARNING:
+;   undefined variable: ’Y
+; 
+; compilation unit finished
+;   Undefined variables:
+;     ’ALL ’IS ’X ’Y
+;   caught 4 WARNING conditions
+;   caught 2 STYLE-WARNING conditions
+
+SPEAK
+* (defun speak (x) (y) (list ’all x ’is y))
+; in: DEFUN SPEAK
+;     (LIST ’ALL X ’IS Y)
+; 
+; caught WARNING:
+;   undefined variable: Y
+
+;     (Y)
+; 
+; caught STYLE-WARNING:
+;   undefined function: Y
+
+;     (LIST ’ALL X ’IS Y)
+; 
+; caught WARNING:
+;   undefined variable: ’ALL
+; 
+; caught WARNING:
+;   undefined variable: ’IS
+; 
+; compilation unit finished
+;   Undefined function:
+;     Y
+;   Undefined variables:
+;     Y ’ALL ’IS
+;   caught 3 WARNING conditions
+;   caught 1 STYLE-WARNING condition
+WARNING: redefining COMMON-LISP-USER::SPEAK in DEFUN
+
+SPEAK
+* (defun speak ((x) (y)) (list all ’x is ’y))
+; in: DEFUN SPEAK
+;     (SB-INT:NAMED-LAMBDA SPEAK
+;         ((X) (Y))
+;       (BLOCK SPEAK (LIST ALL ’X IS ’Y)))
+; 
+; caught ERROR:
+;   Required argument is not a symbol: (X)
+
+debugger invoked on a SB-INT:SIMPLE-PROGRAM-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Required argument is not a symbol: (X)
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+((LAMBDA NIL :IN SB-C::ACTUALLY-COMPILE))
+0] 0
+; 
+; compilation unit aborted
+;   caught 1 fatal ERROR condition
+;   caught 1 ERROR condition
+
+* (list ’cons t nil)
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’CONS is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’CONS #<NULL-LEXENV>)
+0] 0
+
+* (eval (list ’cons t nil))
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’CONS is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’CONS #<NULL-LEXENV>)
+0] 0
+
+* (eval (eval (list ’cons t nil)))
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’CONS is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’CONS #<NULL-LEXENV>)
+0] 0
+
+* (apply #’cons ’(t nil))
+
+debugger invoked on a SB-INT:SIMPLE-READER-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  no dispatch function defined for #\RIGHT_SINGLE_QUOTATION_MARK
+
+    Stream: #<SYNONYM-STREAM :SYMBOL SB-SYS:*STDIN* {91051F1}>
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-IMPL::READ-MAYBE-NOTHING #<SYNONYM-STREAM :SYMBOL SB-SYS:*STDIN* {91051F1}> #\#)
+0] 0
+
+* 
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable CONS is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV CONS #<NULL-LEXENV>)
+0] 0
+
+* 
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’ is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’ #<NULL-LEXENV>)
+0] 0
+
+* ; in: T ()
+;     (T NIL)
+; 
+; caught WARNING:
+;   The function T is undefined, and its name is reserved by ANSI CL so that even
+;   if it were defined later, the code doing so would not be portable.
+; 
+; compilation unit finished
+;   Undefined function:
+;     T
+;   caught 1 WARNING condition
+
+debugger invoked on a UNDEFINED-FUNCTION in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The function COMMON-LISP:T is undefined.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+("undefined function" NIL)
+0] 0
+
+* 
+debugger invoked on a SB-INT:SIMPLE-READER-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  unmatched close parenthesis
+
+    Stream: #<SYNONYM-STREAM :SYMBOL SB-SYS:*STDIN* {91051F1}>
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-IMPL::READ-RIGHT-PAREN #<SYNONYM-STREAM :SYMBOL SB-SYS:*STDIN* {91051F1}> #<unused argument>)
+0] 0
+
+* 0
+
+0
+* (eval nil)
+
+NIL
+* (list ’eval nil)
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’EVAL is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’EVAL #<NULL-LEXENV>)
+0] 0
+
+* (eval (list ’eval nil))
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable ’EVAL is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV ’EVAL #<NULL-LEXENV>)
+0] 0
+
+* exit
+
+debugger invoked on a UNBOUND-VARIABLE in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  The variable EXIT is unbound.
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(SB-INT:SIMPLE-EVAL-IN-LEXENV EXIT #<NULL-LEXENV>)
+0] (exu it)
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork2 [0;36m([1;31mmain[0;36m) [0m$ exit
+exit
+
+Script done on 2025-02-05 04:33:20+00:00 [COMMAND_EXIT_CODE="0"]

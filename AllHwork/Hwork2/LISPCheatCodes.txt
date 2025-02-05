@@ -1,0 +1,40 @@
+sbcl
+(NOT (EQUAL 3 (ABS -3)))
+(/ (+ 8 12) 2)
+(+ (* 3 3) (* 4 4))
+
+(DEFUN MILES-PER-GALLON (INITIAL-ODOMETER-READING FINAL-ODOMETER-READING GALLONS-CONSUMED)
+(/ (- FINAL-ODOMETER-READING INITIAL-ODOMETER-READING) GALLONS-CONSUMED))
+(MILES-PER-GALLON 1000 1200 10)
+
+(third (the quick brown fox))
+(third '(the quick brown fox))
+
+(list 2 and 2 is 4)
+(list 2 'and 2 'is 4)
+
+(+ 1 ’(length (list t t t t)))
+(+ 1 (length (list t t t t)))
+
+(cons ’patrick (seymour marvin))
+(cons 'patrick '(seymour marvin))
+
+(cons ’patrick (list seymour marvin))
+(cons 'patrick (list 'seymour 'marvin))
+
+(mystery '(dancing bear))
+(mystery 'dancing 'bear)
+(mystery '(zowie))
+(mystery (list 'first 'second))
+
+(defun speak (x y) (list ’all ’x ’is ’y))
+(defun speak (x) (y) (list ’all x ’is y))
+(defun speak ((x) (y)) (list all ’x is ’y))
+
+(list ’cons t nil)
+(eval (list ’cons t nil))
+(eval (eval (list ’cons t nil)))
+(apply #’cons ’(t nil))
+(eval nil)
+(list ’eval nil)
+(eval (list ’eval nil))
