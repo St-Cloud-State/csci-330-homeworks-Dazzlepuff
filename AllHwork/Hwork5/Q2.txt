@@ -1,0 +1,8 @@
+The only grammar rule that has left recursion is:
+E 🡺 EoG | G
+
+To eliminate left recursion we can rewrite the rule into two new rules as follows:
+E 🡺 GE'
+E' 🡺 oGE' | ε
+
+with ε being the empty string.

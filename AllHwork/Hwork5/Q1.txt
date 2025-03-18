@@ -1,0 +1,47 @@
+Grammar:
+
+I 🡺 iES | iESeS	
+E 🡺 EoG | G	
+G 🡺 x|y|z|w	 
+S 🡺 s | dLb	
+L 🡺 s | sL
+
+
+
+Derivation for ixoyowdssbes:
+
+Start with I
+    I
+I 🡺 iESeS
+    iESeS
+E 🡺 EoG
+    iEoGSeS
+E 🡺 EoG
+    iEoGoGSeS
+E 🡺 G
+    iGoGoGSeS
+G 🡺 x, G 🡺 y, G 🡺 w
+    ixoyowSeS
+S 🡺 dLb
+    ixoyowdLbeS
+L 🡺 Ls
+    ixoyowdLsbeS
+L 🡺 s
+    ixoyowdssbeS
+S 🡺 s
+    ixoyowdssbes
+
+
+
+Derivation for ixoys:
+
+Start with I
+    I
+I 🡺 iES
+    iES
+E 🡺 EoG
+    iEoGS
+E 🡺 G
+    iGoGS
+G 🡺 x, G 🡺 y
+    ixoys

@@ -1,0 +1,10 @@
+I → i E S I′
+I′ → e S | ε
+E → G E′
+E′ → o G E′ | ε
+G → x | y | z | w
+S → s | d L b
+L → s L′
+L′ → s L′ | ε
+
+ε denotes the empty string

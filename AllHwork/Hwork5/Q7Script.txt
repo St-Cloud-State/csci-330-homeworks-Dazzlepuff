@@ -1,0 +1,229 @@
+Script started on 2025-03-18 03:30:18+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="81" LINES="25"]
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork5 [0;36m([1;31mmain[0;36m) [0m$  cat parser.lisp 
+(defun match (token tokens)
+  "Checks if the first token matches the expected one and consumes it."
+  (if (and tokens (eq (car tokens) token))
+      (cdr tokens)
+      (error "Syntax Error: Unexpected token")))
+
+(defun parse-G (tokens)
+  "Parses G → x | y | z | w"
+  (if (and tokens (member (car tokens) '(x y z w)))
+      (match (car tokens) tokens)
+      (error "Syntax Error: Expected x, y, z, or w")))
+
+(defun parse-E-prime (tokens)
+  "Parses E' → o G E' | ε"
+  (if (and tokens (eq (car tokens) 'o))
+      (progn
+        (setq tokens (match 'o tokens))
+        (setq tokens (parse-G tokens))
+        (parse-E-prime tokens))
+      tokens))  ;; ε case, return unchanged tokens
+
+(defun parse-E (tokens)
+  "Parses E → G E'"
+  (setq tokens (parse-G tokens))
+  (parse-E-prime tokens))
+
+(defun parse-L-prime (tokens)
+  "Parses L' → s L' | ε"
+  (if (and tokens (eq (car tokens) 's))
+      (progn
+        (setq tokens (match 's tokens))
+        (parse-L-prime tokens))
+      tokens))  ;; ε case, return unchanged tokens
+
+(defun parse-L (tokens)
+  "Parses L → s L'"
+  (setq tokens (match 's tokens))
+  (parse-L-prime tokens))
+
+(defun parse-S (tokens)
+  "Parses S → s | d L b"
+  (cond
+    ((and tokens (eq (car tokens) 's))
+     (match 's tokens))
+    ((and tokens (eq (car tokens) 'd))
+     (setq tokens (match 'd tokens))
+     (setq tokens (parse-L tokens))
+     (match 'b tokens))
+    (t (error "Syntax Error: Expected s or d"))))
+
+(defun parse-I-prime (tokens)
+  "Parses I' → e S | ε"
+  (if (and tokens (eq (car tokens) 'e))
+      (progn
+        (setq tokens (match 'e tokens))
+        (parse-S tokens))
+      tokens))  ;; ε case, return unchanged tokens
+
+(defun parse-I (tokens)
+  "Parses I → i E S I'"
+  (setq tokens (match 'i tokens))
+  (setq tokens (parse-E tokens))
+  (setq tokens (parse-S tokens))
+  (parse-I-prime tokens))
+
+(defun parse (tokens)
+  "Main function to start parsing with I as the starting symbol."
+  (setq tokens (parse-I tokens))
+  (if (null tokens)
+      (format t "Parsing successful!~%")
+      (error "Syntax Error: Unexpected extra input")))[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork5 [0;36m([1;31mmain[0;36m) [0m$  car[Kt strings_to_parse.txt 
+i x s
+i w o y s e s
+i z o x o y s e d s b
+i x o z o w s
+i y s e d s s b
+i w o z s e d s s s b
+i z o x o y o w s e d s s s s b
+
+x s
+i w o y q s e s
+i z o x o y e d s b
+i x s e d b s
+i y o o s e d s s b
+i w o z s d s s s b
+i z o x o y o w s e d s s s s b b[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork5 [0;36m([1;31mmain[0;36m) [0m$  ([Ksbcl
+This is SBCL 1.4.3, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
+
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (load "parserl .lisp")
+
+T
+* (parse '        (parse '(i x s))
+Parsing successful!
+NIL
+* (parse '(i w o y s e s))
+Parsing successful!
+NIL
+* (parse '(i z o x o y s e d s b))
+Parsing successful!
+NIL
+* (parse '(i x o z o w s))
+Parsing successful!
+NIL
+* (parse '(i y s e d s s b))
+Parsing successful!
+NIL
+* (parse '(i w o z s e d s s s b))
+Parsing successful!
+NIL
+* (parse '(i z o x o y o w s e d s s s s b))
+Parsing successful!
+NIL
+* (parse '(x s))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Unexpected token
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(MATCH I (X S))
+   source: (ERROR "Syntax Error: Unexpected token")
+0] 0
+
+* (parse '(i w o y q s e s))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Expected s or d
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(PARSE-S (Q S E S))
+   source: (ERROR "Syntax Error: Expected s or d")
+0] 0
+
+* (parse '(i z o x o y e d s b))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Expected s or d
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(PARSE-S (E D S B))
+   source: (ERROR "Syntax Error: Expected s or d")
+0] 0
+
+* (parse '(i x s e d b s))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Unexpected token
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(MATCH S (B S))
+   source: (ERROR "Syntax Error: Unexpected token")
+0] 0
+
+* (parse '(i y o o s e d s s b))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Expected x, y, z, or w
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(PARSE-G (O S E D S S B))
+   source: (ERROR "Syntax Error: Expected x, y, z, or w")
+0] 0
+
+* (parse '(i w o z s d s s s b))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Unexpected extra input
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(PARSE (D S S S B))
+   source: (ERROR "Syntax Error: Unexpected extra input")
+0] 0
+
+* (parse '(i z o x o y o w s e d s s s s b b))
+
+debugger invoked on a SIMPLE-ERROR in thread
+#<THREAD "main thread" RUNNING {9461061}>:
+  Syntax Error: Unexpected extra input
+
+Type HELP for debugger help, or (SB-EXT:EXIT) to exit from SBCL.
+
+restarts (invokable by number or by possibly-abbreviated name):
+  0: [ABORT] Exit debugger, returning to top level.
+
+(PARSE (B))
+   source: (ERROR "Syntax Error: Unexpected extra input")
+0] 0
+
+* (exit)
+[0;32m@Dazzlepuff [0m➜ [1;34m/workspaces/csci-330-homeworks-Dazzlepuff/AllHwork/Hwork5 [0;36m([1;31mmain[0;36m) [0m$  exit
+exit
+
+Script done on 2025-03-18 03:33:02+00:00 [COMMAND_EXIT_CODE="0"]

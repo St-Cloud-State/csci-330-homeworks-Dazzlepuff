@@ -1,0 +1,18 @@
+I → i E S I′
+I′ → e S | ε
+E → G E′
+E′ → o G E′ | ε
+G → x | y | z | w
+S → s | d L b
+L → s L′
+L′ → s L′ | ε
+
+ε denotes the empty string
+
+i → Uniquely determines I → i E S I′
+e → Only appears in I′ → e S
+o → Only appears in E′ → o G E′
+x, y, z, w → Uniquely determine G → x | y | z | w
+s → Could be from S → s or L → s L′, but L always follows d, so there's no ambiguity.
+d → Uniquely determines S → d L b
+b → Only appears at the end of S → d L b

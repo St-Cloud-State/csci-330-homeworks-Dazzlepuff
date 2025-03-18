@@ -1,0 +1,83 @@
+Our rewritten grammar rules:
+
+I 🡺 iES | iESeS	
+E 🡺 GE'
+E' 🡺 oGE' | ε	
+G 🡺 x|y|z|w	 
+S 🡺 s | dLb	
+L 🡺 s | sL
+
+
+Function for I (Starting Rule)
+    If the lookahead is i, we choose between:
+        I → i E S e S
+        I → i E S e S e S
+    Since both productions start with i, we match i and call E, followed by S.
+    If e appears next, we know it's the first production.
+    If another S e follows, we use the second production.
+
+Function for E
+    If the lookahead is G (x, y, z, w):
+        We match G and call E'.
+
+Function for E'
+    If the lookahead is o, we match o, then call G, and then call E' recursively.
+    If the lookahead is anything else, we return (ε-production).
+
+Function for G
+    If the lookahead is x, y, z, or w, we match and return.
+
+Function for S
+    If the lookahead is s, we match s (corresponding to S → s).
+    If the lookahead is d, we match d, then call L, and finally match b (corresponding to S → d L b).
+    Since s also appears in L, further lookahead is needed to determine if we are in S → s or S → d L b.
+
+Function for L
+    If the lookahead is s, we match s and:
+        If another s follows, we continue calling L recursively (L → s L).
+        Otherwise, we stop (L → s).
+
+------------------------------------------------------------------------------------------------------------------------------
+
+i:
+• The only rule that begins with i is for I (both alternatives of I start with i).
+• When the lookahead is i, the parser knows to call the function for I.
+
+e:
+• The terminal e appears only in the production I → i E S e S.
+• When e is encountered (right after the first S in I), it signals that the longer production is being used.
+
+o:
+• The only appearance of o is in E′ (i.e., E′ → o G E′).
+• If the lookahead is o while processing E′, the parser matches o and continues with G E′.
+
+x:
+• x is one of the four terminals produced by G (the others being y, z, and w).
+• Seeing x (while expecting a G) uniquely determines that G should produce x.
+
+y:
+• Similar to x, y is produced by G.
+• When the lookahead is y in the context of G, the parser chooses G → y.
+
+z:
+• z is also produced by G.
+• Its appearance tells the parser that G should yield z.
+
+w:
+• w is the remaining terminal in G.
+• Encountering w means G → w is the correct production.
+
+s:
+• The letter s appears in two places: as a complete production S → s and as the beginning of L in S → d L b (with L → s or L → s L).
+• When the lookahead is s, additional context (or further lookahead) is needed to decide whether it’s just S → s or part of a sequence in L.
+
+d:
+• The terminal d uniquely signals the alternative S → d L b.
+• When d is encountered, the parser knows to match d, call the function for L, and then expect a b.
+
+b:
+• b appears only at the end of the production S → d L b.
+• Its occurrence confirms the end of that S production.
+
+The only ambiguous case is s, since it appears in both S → s and L → s L. The parser must use lookahead to determine whether s is an independent S or part of L.
+
