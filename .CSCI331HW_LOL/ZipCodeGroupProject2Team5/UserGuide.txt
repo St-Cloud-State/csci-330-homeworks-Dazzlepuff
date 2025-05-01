@@ -1,0 +1,146 @@
+﻿
+User Guide for Zipcode Manager
+==============================
+
+Overview:
+---------
+This program allows users to interact with data files in CSV and LRF formats. It provides functionalities to:
+- Print CSV and LRF records.
+- Convert CSV files to LRF format.
+- Read and update header records in LRF files.
+- Generate state extremes reports from LRF data.
+- Search for Zip Code records in LRF files.
+
+Program Functions:
+------------------
+1. Print CSV Records:
+   - This function prints the records from a CSV file.
+   - The user is prompted to enter the CSV file name.
+   - The program will display the column headers and each record with their corresponding field names.
+
+2. Print LRF Records:
+   - This function prints the records from an LRF file.
+   - The user is prompted to enter the LRF file name.
+   - The program will display each record in the file.
+
+3. Convert CSV to LRF:
+   - This function converts a CSV file to an LRF file.
+   - The user is prompted to enter the CSV file name and the desired LRF file name (optional as a name will be generated if left blank).
+   - The program will process the CSV file and generate a corresponding LRF file.
+
+4. Read Header Record:
+   - This function reads and displays the header information from an LRF file.
+   - The user is prompted to enter the LRF file name.
+   - The program will display details such as the file type, version, record count, field definitions, and more.
+
+5. Write (Update) Header Record:
+   - This function updates the header record of an LRF file.
+   - The user is prompted to enter the LRF file name and the new file type and version.
+   - The program will update the header with the new information.
+
+6. Run State Extremes Report:
+   - This function generates a state extremes report from an LRF file.
+   - The user is prompted to enter the LRF file name.
+   - The program will generate the report and display the state extremes.
+
+7. Search for Zip Code Records by Index:
+   - This function allows searching for Zip Code records using a primary key index in an LRF file.
+   - The user is prompted to enter the LRF file name and one or more Zip Code flags.
+   - The program will search the records and display matching results.
+
+Usage Instructions:
+-------------------
+1. Launch the program.
+2. Choose the desired functionality from the menu by entering the corresponding number in the command line.
+3. Follow the prompts to provide the required input (file names, Zip Code flags, etc.).
+4. The program will process the data and display the results.
+
+Example:
+--------
+1. To print CSV records:
+   - Enter "1" when prompted.
+   - Provide the name of the CSV file.
+   - The program will display the records in the CSV file.
+
+2. To search for Zip Code records in an LRF file:
+   - Enter "7" when prompted.
+   - Provide the name of the LRF file and the Zip Code flags to search for (e.g., "-Z56301 -Z12345").
+   - The program will display the records matching the provided Zip Codes.
+
+Example Output:
+---------------
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes.lrf
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z56303 -Z56301 -Z12345
+Record for Zip Code 56303:
+Zip_Code: 56303 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.5713 | Long: -94.2036 |
+Record for Zip Code 56301:
+Zip_Code: 56301 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.541 | Long: -94.1819 |
+Record for Zip Code 12345:
+Zip_Code: 12345 | Place_Name: Schenectady | State: NY | County: Schenectady | Lat: 42.8142 | Long: -73.9396 |
+
+File Extensions:
+----------------
+- CSV files must have the ".csv" extension.
+- LRF files must have the ".lrf" extension.
+
+Error Handling:
+---------------
+- If a file cannot be opened, an error message will be displayed.
+- If invalid data is encountered (e.g., incorrect file format or missing records), the program will notify the user.
+
+Program Requirements:
+---------------------
+- The program requires the following libraries:
+  - Standard C++ libraries (iostream, vector, string, fstream, sstream, unordered_map)
+
+
+
+========================================
+       ZIPCODE MANAGER - COMPILATION
+========================================
+
+To compile the Zipcode Manager program, follow the steps below:
+
+----------------------------------------
+   COMPILING WITH g++ (GCC)
+----------------------------------------
+1. Open a terminal or command prompt.
+2. Navigate to the project directory.
+3. Run the following command:
+
+   g++ -o zipcode_manager main.cpp \
+      CSVBuffer.cpp CSVToLengthIndicated.cpp \
+      HeaderRecordBuffer.cpp LRFBuffer.cpp \
+      StateExtremesReport.cpp -I.
+
+   Explanation:
+   - `-o zipcode_manager` → Sets the output file name.
+   - `-I.` → Ensures header files are found in the current directory.
+
+4. Run the program:
+
+   ./zipcode_manager
+
+----------------------------------------
+   DEPENDENCIES
+----------------------------------------
+- Ensure all required `.h` files are present.
+- No external libraries are needed.
+- Works on Windows, Linux, and macOS (with a C++ compiler installed).
+
+========================================
+        END OF COMPILATION GUIDE
+========================================
+
+
+License:
+--------
+This program is provided "as is" with no warranties. You are free to modify and distribute the program under the terms of the license associated with this code.

@@ -1,0 +1,140 @@
+Script started on 2025-03-25 00:34:09+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="81" LINES="13"]
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ g++ -o zipcode_manager main.cpp CSVBuffer.cpp CSVToLengthIndicated.cpp HeaderRecordBuffer.cpp LRFBuffer.cpp StateExtremesReport.cpp -I .
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ zip[K[K[K./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z56303 -Z56301^[[D^[[C         1 _Z12345^[[D           -Z12345
+Record for Zip Code 56303:
+Zip_Code: 56303 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.5713 | Long: -94.2036 | 
+Record for Zip Code 56301:
+Zip_Code: 56301 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.541 | Long: -94.1819 | 
+Record for Zip Code 12345:
+Zip_Code: 12345 | Place_Name: Schenectady | State: NY | County: Schenectady | Lat: 42.8142 | Long: -73.9396 | 
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes_ROWS_RANDOMZI  IZED
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z1 -Z12345                   -Z56301 -Z12345  ^[[D               303 -Z56301 -Z12345
+Record for Zip Code 56303:
+Zip_Code: 56303 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.5713 | Long: -94.2036 | 
+Record for Zip Code 56301:
+Zip_Code: 56301 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.541 | Long: -94.1819 | 
+Record for Zip Code 12345:
+Zip_Code: 12345 | Place_Name: Schenectady | State: NY | County: Schenectady | Lat: 42.8142 | Long: -73.9396 | 
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager [K./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes_ROWS_COL        COLUMNS_RANDOMIZED
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z56303 -Z56301 -Z12345
+Record for Zip Code 56303:
+ZipCode: 56303 | Lat: 45.5713 | State: MN | County: Stearns | PlaceName: Saint Cloud | Long: -94.2036 | 
+Record for Zip Code 56301:
+ZipCode: 56301 | Lat: 45.541 | State: MN | County: Stearns | PlaceName: Saint Cloud | Long: -94.1819 | 
+Record for Zip Code 12345:
+ZipCode: 12345 | Lat: 42.8142 | State: NY | County: Schenectady | PlaceName: Schenectady | Long: -73.9396 | 
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes_r ROWS_COLUMNS_RANDOMIZED
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z56303 -Z56301 -Z12345
+Record for Zip Code 56303:
+ZipCode: 56303 | State: MN | Long: -94.2036 | County: Stearns | PlaceName: Saint Cloud | Lat: 45.5713 | 
+Record for Zip Code 56301:
+ZipCode: 56301 | State: MN | Long: -94.1819 | County: Stearns | PlaceName: Saint Cloud | Lat: 45.541 | 
+Record for Zip Code 12345:
+ZipCode: 12345 | State: NY | Long: -73.9396 | County: Schenectady | PlaceName: Schenectady | Lat: 42.8142 | 
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z1234567890
+Zip Code 1234567890 not found in index.
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes_ROWS_RANDOMIZED
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z1234567890
+Zip Code 1234567890 not found in index.
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes_COLYMS   UMNS_RANDOMIZED
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z1234567890
+Zip Code 1234567890 not found in index.
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_cpo  odes_ROWS_COUL  LUMNS_RANDOMIZED
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z1234567890
+Zip Code 1234567890 not found in index.
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ [K[A[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ ./zipcode_manager 
+1. Print CSV Records
+2. Print LRF Records
+3. Convert CSV to LRF
+4. Read Header Record
+5. Write (Update) Header Record
+6. Run State Extremes Report
+7. Search for Zip Code Records by Index
+Enter your choice: 7
+Enter the LRF file name to search in: us_postal_codes
+Enter Zip Code flags (e.g., -Z56301 -Z12345), separated by spaces: -Z56303 -Z56301 -Z12345 -Z1234567890
+Record for Zip Code 56303:
+Zip_Code: 56303 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.5713 | Long: -94.2036 | 
+Record for Zip Code 56301:
+Zip_Code: 56301 | Place_Name: Saint Cloud | State: MN | County: Stearns | Lat: 45.541 | Long: -94.1819 | 
+Record for Zip Code 12345:
+Zip_Code: 12345 | Place_Name: Schenectady | State: NY | County: Schenectady | Lat: 42.8142 | Long: -73.9396 | 
+Zip Code 1234567890 not found in index.
+[0;32m@Dazzlepuff [0m➜ [1;34m.../csci-330-homeworks-Dazzlepuff/.CSCI331HW_LOL/ZipCodeGroupProject2Team5/SourceCode [0;36m([1;31mmain[0;36m) [0m$ exit[K[K[K[Kexit
+exit
+
+Script done on 2025-03-25 00:42:08+00:00 [COMMAND_EXIT_CODE="0"]
